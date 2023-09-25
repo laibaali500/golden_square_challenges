@@ -44,6 +44,8 @@ class DiaryEntry:
         # The next call after that should restart from the beginning.
         
         numberOfWords = wpm * minutes
+        if (self.readUpTo + numberOfWords + 2) > self.count_words():
+            self.readUpTo = 0
         chunk = self.contents.split()[self.readUpTo:(self.readUpTo + numberOfWords)]
         self.readUpTo += numberOfWords
         return " ".join(chunk)

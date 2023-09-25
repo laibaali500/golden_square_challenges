@@ -46,3 +46,13 @@ def test_diary_reading_serveral_chunks():
                        But I believe Aang can save the world.""") # 85 words
     diary.reading_chunk(5, 2)
     assert diary.reading_chunk(5, 2) == "together in harmony. Then, everything changed when the Fire Nation"
+
+def test_diary_reading_chunk_restart():
+    diary = DiaryEntry("Avatar: The Last Airbender",
+                       """Water. Earth. Fire. Air. Long ago, the four nations lived together in harmony. 
+                       Then, everything changed when the Fire Nation attacked. Only the Avatar, master of all four elements, could stop them, 
+                       but when the world needed him most, he vanished. A hundred years passed and my brother and I discovered the new Avatar, 
+                       an airbender named Aang. And although his airbending skills are great, he has a lot to learn before he's ready to save anyone. 
+                       But I believe Aang can save the world.""") # 85 words
+    diary.reading_chunk(5, 2)
+    assert diary.reading_chunk(5, 2) == "Water. Earth. Fire. Air. Long ago, the four nations lived"
